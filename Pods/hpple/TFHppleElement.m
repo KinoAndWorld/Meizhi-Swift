@@ -168,6 +168,7 @@ static NSString * const TFHppleTextNodeName            = @"text";
     
     for (TFHppleElement* child in self.children)
     {
+        NSLog(@"subClassName : %@",[child objectForKey:@"class"]);
         if ([[child objectForKey:@"class"] isEqualToString:className])
             [matches addObject:child];
     }

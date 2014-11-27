@@ -3,13 +3,21 @@ PODS:
     - AsyncDisplayKit/ASDealloc2MainObject (= 1.0.1)
   - AsyncDisplayKit/ASDealloc2MainObject (1.0.1)
   - hpple (0.2.0)
+  - M13ProgressSuite (1.2.6)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
   - AsyncDisplayKit
   - hpple (~> 0.2.0)
+  - M13ProgressSuite (~> 1.2.6)
+  - SDWebImage (~> 3.7.1)
 
 SPEC CHECKSUMS:
   AsyncDisplayKit: 1bbf78b78795370cc191b15ad7755683c32cc927
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
+  M13ProgressSuite: b31f7bf2ed7dfab339fcd490775515bbf4a78c08
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.35.0
