@@ -9,9 +9,7 @@
 import UIKit
 
 class CoverTableCell: UITableViewCell {
-//    var cardContainer:CALayer?
-//    var coverImageView:ASImageNode?
-//    var toolBarNode:ASDisplayNode?
+    
     var model:Cover?
     
     @IBOutlet weak var cardContainer: UIView!
@@ -22,10 +20,6 @@ class CoverTableCell: UITableViewCell {
         
         cardContainer.layer.borderWidth = 2
         cardContainer.layer.borderColor = UIColor.whiteColor().CGColor
-//        cardContainer.layer.shadowColor = UIColor.grayColor().CGColor
-//        cardContainer.layer.shadowOpacity = 0.3
-//        cardContainer.layer.shadowRadius = 10
-        //
     }
     
 //    override func layoutSubviews() {

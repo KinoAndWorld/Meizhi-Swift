@@ -19,15 +19,10 @@ extension Array {
     }
 }
 
-
 class CoverController: BaseController , UITableViewDelegate , UITableViewDataSource{
     
     var coverID = ""
     var covers:Array<Cover> = []
-    
-//    @IBOutlet weak var galleryViewer: SwipeView!
-    
-    
     
     @IBOutlet weak var coverTableView: UITableView!
     
@@ -61,7 +56,6 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
                     }
                 }
             }
-//            println(cover.imageUrl)
         }
     }
     
@@ -90,24 +84,14 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
         }
     }
     
-    
     func reloadCoversData(){
-//        for cover in covers{
-//            println(cover.imageUrl)
-//        }
-//        galleryViewer.reloadData()
         coverTableView.reloadData()
     }
-    
     
     //MARK: TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.covers.count
     }
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let coverCell = tableView.dequeueReusableCellWithIdentifier("CoverTableCell", forIndexPath: indexPath) as CoverTableCell
@@ -117,8 +101,6 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
         
         return coverCell
     }
-    
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
@@ -138,23 +120,12 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
             mode: JTSImageViewControllerMode.Image,
             backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
         
-        imageViewer.showFromViewController(self, transition: JTSImageViewControllerTransition._FromOriginalPosition)
+        imageViewer.showFromViewController(self,
+            transition: JTSImageViewControllerTransition._FromOriginalPosition)
         
-        // Setup view controller
-//        JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
-//        initWithImageInfo:imageInfo
-//        mode:JTSImageViewControllerMode_Image
-//        backgroundStyle:JTSImageViewControllerBackgroundStyle_ScaledDimmedBlurred];
-        
-        // Present the view controller.
-//        [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
     }
     
-    //MARK: SwipeView
-    func numberOfItemsInSwipeView(swipeView: SwipeView!) -> Int {
-        return self.covers.count
-    }
-    
+    //MARK: Will Delete
     func swipeView(swipeView: SwipeView!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView! {
         let imageView = UIImageView(frame: swipeView.bounds)
         imageView.contentMode = UIViewContentMode.ScaleAspectFit

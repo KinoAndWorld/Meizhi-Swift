@@ -47,8 +47,6 @@ class CoverManager: NSObject {
                 return
             }
             
-            //            println(dataString)
-            
             let htmlData:NSData? = dataString!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) as NSData?
             let xPathParser = TFHpple(HTMLData: htmlData)
             if let element:Array = xPathParser.searchWithXPathQuery("//*[@class='box show-box']/img"){
@@ -58,7 +56,6 @@ class CoverManager: NSObject {
                         covers.append(Cover.coverWithUrlString(imageUrl))
                     }
                 }
-                
                 completeHandler(covers)
             }
             

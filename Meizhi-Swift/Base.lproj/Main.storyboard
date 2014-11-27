@@ -155,9 +155,10 @@
                         <viewControllerLayoutGuide type="bottom" id="HUa-KC-Q0N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="H45-J8-P8l">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="500" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zct-4x-HQE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="500" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zct-4x-HQE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -287,10 +288,10 @@
                                 <exclude reference="zct-4x-HQE"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Cm7-mS-c4e"/>
                                 <exclude reference="mta-YY-DSd"/>
                                 <exclude reference="rUj-7z-rhr"/>
                                 <exclude reference="uLe-RQ-FYZ"/>
-                                <exclude reference="Cm7-mS-c4e"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -298,10 +299,10 @@
                                 <include reference="zct-4x-HQE"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Cm7-mS-c4e"/>
                                 <include reference="mta-YY-DSd"/>
                                 <include reference="rUj-7z-rhr"/>
                                 <include reference="uLe-RQ-FYZ"/>
-                                <include reference="Cm7-mS-c4e"/>
                             </mask>
                         </variation>
                     </view>

@@ -18,10 +18,10 @@
 		386261B11A27817D00B7DE8F /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 386261A91A27817D00B7DE8F /* JTSSimpleImageDownloader.m */; };
 		386261B21A27817D00B7DE8F /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386261AB1A27817D00B7DE8F /* UIApplication+JTSImageViewController.m */; };
 		386261B31A27817D00B7DE8F /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 386261AD1A27817D00B7DE8F /* UIImage+JTSImageEffects.m */; };
+		386261B71A27957F00B7DE8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386261B51A27957F00B7DE8F /* LaunchScreen.xib */; };
+		386261B91A27958300B7DE8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386261B81A27958300B7DE8F /* Images.xcassets */; };
 		38B3E3A61A23A7F10018F07D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B3E3A51A23A7F10018F07D /* AppDelegate.swift */; };
 		38B3E3AB1A23A7F10018F07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B3E3A91A23A7F10018F07D /* Main.storyboard */; };
-		38B3E3AD1A23A7F10018F07D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B3E3AC1A23A7F10018F07D /* Images.xcassets */; };
-		38B3E3B01A23A7F10018F07D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B3E3AE1A23A7F10018F07D /* LaunchScreen.xib */; };
 		38B3E3BC1A23A7F10018F07D /* Meizhi_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B3E3BB1A23A7F10018F07D /* Meizhi_SwiftTests.swift */; };
 		38B3E3D01A23AA710018F07D /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3E3CB1A23A9D90018F07D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38B3E3D81A2425500018F07D /* Gallary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B3E3D71A2425500018F07D /* Gallary.swift */; };
@@ -90,12 +90,12 @@
 		386261AB1A27817D00B7DE8F /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
 		386261AC1A27817D00B7DE8F /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
 		386261AD1A27817D00B7DE8F /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		386261B61A27957F00B7DE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Meizhi-Swift/Base.lproj/LaunchScreen.xib"; sourceTree = SOURCE_ROOT; };
+		386261B81A27958300B7DE8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Meizhi-Swift/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		38B3E3A01A23A7F10018F07D /* Meizhi-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meizhi-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B3E3A41A23A7F10018F07D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B3E3A51A23A7F10018F07D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B3E3AA1A23A7F10018F07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		38B3E3AC1A23A7F10018F07D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
-		38B3E3AF1A23A7F10018F07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		38B3E3B51A23A7F10018F07D /* Meizhi-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meizhi-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B3E3BA1A23A7F10018F07D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B3E3BB1A23A7F10018F07D /* Meizhi_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meizhi_SwiftTests.swift; sourceTree = "<group>"; };
@@ -239,8 +239,8 @@
 		38B3E3D11A2423580018F07D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				38B3E3AE1A23A7F10018F07D /* LaunchScreen.xib */,
-				38B3E3AC1A23A7F10018F07D /* Images.xcassets */,
+				386261B81A27958300B7DE8F /* Images.xcassets */,
+				386261B51A27957F00B7DE8F /* LaunchScreen.xib */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -410,9 +410,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386261B91A27958300B7DE8F /* Images.xcassets in Resources */,
+				386261B71A27957F00B7DE8F /* LaunchScreen.xib in Resources */,
 				38B3E3AB1A23A7F10018F07D /* Main.storyboard in Resources */,
-				38B3E3B01A23A7F10018F07D /* LaunchScreen.xib in Resources */,
-				38B3E3AD1A23A7F10018F07D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,21 +503,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		386261B51A27957F00B7DE8F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				386261B61A27957F00B7DE8F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		38B3E3A91A23A7F10018F07D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				38B3E3AA1A23A7F10018F07D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		38B3E3AE1A23A7F10018F07D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38B3E3AF1A23A7F10018F07D /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
