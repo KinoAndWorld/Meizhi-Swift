@@ -1,7 +1,7 @@
 Meizhi-Swift
 ============
 
-###meizh.im 的非官方iOS客户端
+###meizhi.im 的非官方iOS客户端
 
 纯练手之作，粗暴解析Html抓取图片链接
 不知道什么时候就跪了，嗯。
