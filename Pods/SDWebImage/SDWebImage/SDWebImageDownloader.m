@@ -12,6 +12,8 @@
 
 NSString *const SDWebImageDownloadStartNotification = @"SDWebImageDownloadStartNotification";
 NSString *const SDWebImageDownloadStopNotification = @"SDWebImageDownloadStopNotification";
+NSString *const SDWebImageDownloadProgressNotification = @"SDWebImageDownloadProgressNotification";
+
 
 static NSString *const kProgressCallbackKey = @"progress";
 static NSString *const kCompletedCallbackKey = @"completed";
@@ -131,8 +133,17 @@ static NSString *const kCompletedCallbackKey = @"completed";
                                                                       if (!sself) return;
                                                                       NSArray *callbacksForURL = [sself callbacksForURL:url];
                                                                       for (NSDictionary *callbacks in callbacksForURL) {
+//
                                                                           SDWebImageDownloaderProgressBlock callback = callbacks[kProgressCallbackKey];
-                                                                          if (callback) callback(receivedSize, expectedSize);
+                                                                          [[NSNotificationCenter defaultCenter]
+                                                                           postNotificationName:SDWebImageDownloadProgressNotification
+                                                                           object:@{@"receivedSize":@(receivedSize),
+                                                                                    @"expectedSize":@(expectedSize),
+                                                                                    @"url":url}];
+                                                                          
+                                                                          if (callback){
+                                                                              callback(receivedSize, expectedSize);
+                                                                          }
                                                                       }
                                                                   }
                                                                  completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {

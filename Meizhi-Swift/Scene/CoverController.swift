@@ -24,6 +24,8 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
     var coverID = ""
     var covers:Array<Cover> = []
     
+    var loadingView:LoadingView? = nil
+    
     @IBOutlet weak var coverTableView: UITableView!
     
     override func viewDidLoad() {
@@ -33,13 +35,22 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
     }
     
     func prepareData(){
+        loadingView = LoadingView()
+        loadingView!.showMe()
         if coverID != ""{
             CoverManager.fetchCovers(coverID: coverID, andComplete:{
                 [weak self] covers in
+                
                 if let strongSelf = self{
-                    strongSelf.covers = covers
-                    strongSelf.observerCoverSize()
-                    strongSelf.reloadCoversData()
+                    strongSelf.loadingView?.hideMe()
+                    if covers.count != 0{
+                        strongSelf.covers = covers
+                        strongSelf.observerCoverSize()
+                        strongSelf.reloadCoversData()
+                    }else{
+                        //handle blank data
+                        
+                    }
                 }
             })
         }
@@ -98,68 +109,25 @@ class CoverController: BaseController , UITableViewDelegate , UITableViewDataSou
         
         let model = self.covers[indexPath.row] as Cover
         coverCell.configureCellWithCover(model)
+        coverCell.touchCellCall = {[weak self] covCell in
+            if let sSelf = self{
+                let model = covCell.model! as Cover
+                
+                let imageInfo = JTSImageInfo()
+                imageInfo.image = covCell.coverImageView.image
+                imageInfo.imageURL = NSURL(string:  model.imageUrl)
+                imageInfo.referenceRect = covCell.coverImageView.frame;
+                imageInfo.referenceView = covCell.coverImageView.superview;
+                
+                let imageViewer = JTSImageViewController(imageInfo: imageInfo,
+                    mode: JTSImageViewControllerMode.Image,
+                    backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
+                
+                imageViewer.showFromViewController(self,
+                    transition: JTSImageViewControllerTransition._FromOriginalPosition)
+            }
+        }
         
         return coverCell
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        
-        let model = self.covers[indexPath.row] as Cover
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as CoverTableCell
-        
-        let imageInfo = JTSImageInfo()
-        imageInfo.image = cell.coverImageView.image
-        imageInfo.imageURL = NSURL(string:  model.imageUrl)
-        imageInfo.referenceRect = cell.coverImageView.frame;
-        imageInfo.referenceView = cell.coverImageView.superview;
-        
-        
-        let imageViewer = JTSImageViewController(imageInfo: imageInfo,
-            mode: JTSImageViewControllerMode.Image,
-            backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
-        
-        imageViewer.showFromViewController(self,
-            transition: JTSImageViewControllerTransition._FromOriginalPosition)
-        
-    }
-    
-    //MARK: Will Delete
-    func swipeView(swipeView: SwipeView!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView! {
-        let imageView = UIImageView(frame: swipeView.bounds)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        
-//        let progressView = M13ProgressViewRing(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-//        progressView.center = imageView.center
-//        progressView.showPercentage = true
-//        progressView.primaryColor = UIColor.orangeColor()
-//        progressView.secondaryColor = UIColor.whiteColor()
-//        imageView.addSubview(progressView)
-        
-        let coverModel = self.covers[index] as Cover
-        if let imageUrl = NSURL(string: coverModel.imageUrl){
-            imageView.sd_setImageWithURL(imageUrl,
-                placeholderImage: UIImage(named: "cardPlaceholder"),
-                options: SDWebImageOptions.ContinueInBackground ,
-                progress: { (receivedSize, expectiveSize) -> Void in
-                    println("下载进度\(receivedSize)/\(expectiveSize)")
-//                    progressView.setProgress(CGFloat(receivedSize/expectiveSize), animated: true)
-                },completed: { [weak imageView /*, weak progressView*/]
-                    (resultImage, error, cacheType, url) -> Void in
-                    if let strongImageView = imageView {
-                        strongImageView.image = resultImage
-//                        if let strongProgress = progressView{
-//                            strongProgress.removeFromSuperview()
-//                        }
-                    }
-                })
-        }
-        
-        return imageView
-    }
-    
-    
-    
-    
 }

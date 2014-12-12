@@ -108,7 +108,9 @@
     _percentageLabel.foregroundColor = self.primaryColor.CGColor;
     _percentageLabel.alignmentMode = kCAAlignmentCenter;
     UILabel *temp = [[UILabel alloc] init];
+    temp.font = [UIFont systemFontOfSize:13];
     _percentageLabel.font = (__bridge CFTypeRef)temp.font;
+    _percentageLabel.foregroundColor = [UIColor colorWithRed:73.f/255.f green:192.f/255.f blue:238.f/255.f alpha:1.0].CGColor;
     _percentageLabel.contentsScale = [UIScreen mainScreen].scale;
     [self.layer addSublayer:_percentageLabel];
     

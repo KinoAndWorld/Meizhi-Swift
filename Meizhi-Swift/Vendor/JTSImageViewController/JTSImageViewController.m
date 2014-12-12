@@ -133,10 +133,63 @@ typedef struct {
         _backgroundOptions = backgroundOptions;
         if (_mode == JTSImageViewControllerMode_Image) {
             [self setupImageAndDownloadIfNecessary:imageInfo];
+            [self addOtherTools];
         }
     }
     return self;
 }
+
+- (void)addOtherTools{
+    UIView *toolBar = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 60)];
+//    toolBar.backgroundColor = [UIColor yellowColor];
+    UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    downloadButton.frame = CGRectMake(20, 10, 120, 40);
+    downloadButton.backgroundColor = [UIColor blackColor];
+    [downloadButton setTitle:@"Save To Album" forState:UIControlStateNormal];
+    downloadButton.titleLabel.font = [UIFont systemFontOfSize:14.f];
+    [downloadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    downloadButton.layer.cornerRadius = 10;
+    downloadButton.layer.borderWidth = 2;
+    downloadButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    [downloadButton addTarget:self
+                       action:@selector(saveImageToSystem)
+             forControlEvents:UIControlEventTouchUpInside];
+    [toolBar addSubview:downloadButton];
+    
+    [self.view addSubview:toolBar];    
+}
+
+- (void)saveImageToSystem{
+    UIImageWriteToSavedPhotosAlbum(self.image, self,
+                                   @selector(image:didFinishSavingWithError:contextInfo:),
+                                   nil);
+    
+}
+
+- (void)image:(UIImage *)image
+didFinishSavingWithError:(NSError *)error
+  contextInfo:(void *)contextInfo{
+    if (error != NULL){
+        //失败
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Save Fail"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
+    else{
+        //成功
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Save succeed"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
+}
+
 
 - (void)showFromViewController:(UIViewController *)viewController
                     transition:(JTSImageViewControllerTransition)transition {

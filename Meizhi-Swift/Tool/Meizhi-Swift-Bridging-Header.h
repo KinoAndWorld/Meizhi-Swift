@@ -7,7 +7,8 @@
 #import "UIImageView+WebCache.h"
 
 #import "SwipeView.h"
-#import "M13ProgressViewRing.h"
+#import "M13ProgressViewBar.h"
+#import "M13ProgressViewBorderedBar.h"
 
 #import "JTSImageInfo.h"
 #import "JTSImageViewController.h"

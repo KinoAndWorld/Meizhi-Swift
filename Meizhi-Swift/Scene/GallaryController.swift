@@ -14,15 +14,20 @@ class GallaryController: BaseController , UICollectionViewDataSource, UICollecti
     
     
     var gallery:[Gallary] = []
+    let loadingView = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        gallaryCollectionView.registerClass(GallaryCell.self, forCellWithReuseIdentifier: "GallaryCell")
         
+//        loadingView.backgroundColor = UIColor.greenColor()
+        loadingView.showMe()
+        
         GallaryManager.fetchGallary {
             [weak self] searchGallary in
             if let strongSelf = self{
+                strongSelf.loadingView.hideMe()
                 strongSelf.gallery = searchGallary
                 strongSelf.reloadGallaryData()
             }
